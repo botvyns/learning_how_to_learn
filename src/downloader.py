@@ -1,8 +1,8 @@
 import os
-from dotenv import load_dotenv
 from urllib.parse import urlparse, parse_qs
 
 import yt_dlp
+from dotenv import load_dotenv
 from pytube import Playlist, YouTube
 
 load_dotenv()
