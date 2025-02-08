@@ -1,8 +1,9 @@
 import os
 from dotenv import load_dotenv
+from urllib.parse import urlparse, parse_qs
 
 import yt_dlp
-from pytube import Playlist
+from pytube import Playlist, YouTube
 
 load_dotenv()
 
@@ -26,10 +27,11 @@ class Downloader:
             ],
         }
 
-    def _get_video_urls(self, playlist_url: str) -> list:
-        return [video.watch_url for video in Playlist(playlist_url).videos]
+    def _get_video_urls_from_playlist(self, url: str) -> list:
+        return [video.watch_url for video in Playlist(url).videos]
 
-    def download(self, playlist_url: str) -> None:
-        video_urls = self._get_video_urls(playlist_url)
+    def download(self, url: str) -> None:
+        query_params = parse_qs(urlparse(url).query)
+        watch_urls = self._get_video_urls_from_playlist(url) if "list" in query_params else [YouTube(url).watch_url]
         with yt_dlp.YoutubeDL(self.ydl_opts) as ydl:
-            ydl.download(video_urls)
+            ydl.download(watch_urls)
