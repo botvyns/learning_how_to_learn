@@ -8,7 +8,7 @@ DATA_DIR = Path(os.getenv("DATA_DIR", "data"))
 AUDIO_DIR = Path(os.getenv("AUDIO_DIR", DATA_DIR / "audio"))
 TRANSCRIPTS_DIR = Path(os.getenv("TRANSCRIPTS_DIR", DATA_DIR / "transcripts"))
 TRANSCRIPTION_FILE = Path(os.getenv("TRANSCRIPTION_FILE", DATA_DIR / "transcription.md"))
-PLAYLIST_URL = os.getenv('PLAYLIST_URL')
+YOUTUBE_URL = os.getenv('YOUTUBE_URL')
 
 for directory in [DATA_DIR, AUDIO_DIR, TRANSCRIPTS_DIR]:
     directory.mkdir(parents=True, exist_ok=True)

@@ -11,7 +11,7 @@ downloader = Downloader()
 summarizer = Summarizer()
 transcriber = whisper.load_model(config.WHISPER_MODEL)
 
-downloader.download(config.PLAYLIST_URL)
+downloader.download(config.YOUTUBE_URL)
 
 audio_files = [file for file in config.AUDIO_DIR.iterdir() if file.is_file()]
 
