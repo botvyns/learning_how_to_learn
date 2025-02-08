@@ -5,27 +5,35 @@ import config
 from src.downloader import Downloader
 from src.summarizer import Summarizer
 
-logger.add("app.log", format="{time} - {level} - {message}", level="INFO")
 
-downloader = Downloader()
-summarizer = Summarizer()
-transcriber = whisper.load_model(config.WHISPER_MODEL)
+def main():
+    logger.add("app.log", format="{time} - {level} - {message}", level="INFO")
 
-downloader.download(config.YOUTUBE_URL)
+    downloader = Downloader()
+    summarizer = Summarizer()
+    transcriber = whisper.load_model(config.WHISPER_MODEL)
 
-audio_files = [file for file in config.AUDIO_DIR.iterdir() if file.is_file()]
+    downloader.download(config.YOUTUBE_URL)
 
-summaries = []
-for audio_path in audio_files:
-    logger.info(f"Transcribing: {audio_path}")
-    result = transcriber.transcribe(str(audio_path))['text']
+    audio_paths = [audio_path for audio_path in config.AUDIO_DIR.iterdir() if audio_path.is_file()]
 
-    output_file = config.TRANSCRIPTS_DIR / f"{audio_path.stem}.txt"
-    output_file.write_text(result, encoding="utf-8")
-    logger.info(f"Transcription saved to: {output_file}")
+    summaries = []
+    for audio_path in audio_paths:
+        logger.info(f"Transcribing: {audio_path}")
+        audio_name = audio_path.stem
+        transcript = transcriber.transcribe(str(audio_path))["text"]
 
-    summary = summarizer.summarize(result)
-    summaries.append(summary)
+        output_file = config.TRANSCRIPTS_DIR / f"{audio_name}.txt"
+        output_file.write_text(transcript, encoding="utf-8")
+        logger.info(f"Transcription saved to: {output_file}")
 
-with config.TRANSCRIPTION_FILE.open("a", encoding="utf-8") as f:
-    f.writelines(f"{summary}\n" for summary in summaries)
+        summary = summarizer.summarize(transcript)
+        full_summary = f"# {audio_name}\n\n{summary}"
+        summaries.append(full_summary)
+
+    with config.SUMMARY_FILE.open("w", encoding="utf-8") as f:
+        f.writelines(f"{summary}\n\n" for summary in summaries)
+
+
+if __name__ == "__main__":
+    main()

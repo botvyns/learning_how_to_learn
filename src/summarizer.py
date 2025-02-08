@@ -14,20 +14,23 @@ class Summarizer:
 
     @property
     def user_prompt(self) -> str:
-        return """Based on the provided transcipt, provide:
-        1. key concepts
-        2. their brief explanations
-        3. any metaphors, analogies, or examples that can help the reader better grasp key points
-        4. questions to check up knowledge later
+        return """Based on the provided text, provide:
+
+        1. **Key Concepts & Brief Explanations** – Summarize essential ideas concisely.
+        2. **Metaphors, Analogies, or Examples** – Provide clear comparisons or real-world examples to enhance understanding.
+        3. **Recall Questions** – List targeted questions to reinforce learning.
+
         Text: {text}"""
 
     @property
     def system_prompt(self) -> str:
-        return """You help to solidyfy the knowledge provided in the text.
-                You can identify key concepts and provide their brief explanation.
-                You can use metaphors, analogies, or examples to help the reader better grasp key points.
-                You know which questions will help the learner to better recall information later.
-                Cut the chatter."""
+        return """You enhance knowledge retention by structuring information clearly.
+
+        - Identify key concepts and explain them concisely.
+        - Use metaphors, analogies, or real-world examples to improve comprehension.
+        - Generate effective recall questions to reinforce learning.
+
+        You keep responses precise and to the point. No unnecessary explanations. You alsway respond in Markdown."""
 
     def summarize(self, text: str) -> str:
         prompt = self.user_prompt.format(text=text)
