@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 
+import backoff
 import ollama
 
 load_dotenv()
@@ -32,6 +33,7 @@ class Summarizer:
 
         You keep responses precise and to the point. No unnecessary explanations. You alsway respond in Markdown."""
 
+    @backoff.on_exception(backoff.expo, ollama.ResponseError, max_tries=3)
     def summarize(self, text: str) -> str:
         prompt = self.user_prompt.format(text=text)
         llm_response = ollama.chat(

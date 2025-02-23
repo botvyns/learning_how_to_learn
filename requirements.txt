@@ -1,3 +1,4 @@
+backoff==2.2.1
 loguru==0.7.3
 ollama==0.4.7
 openai-whisper==20240930

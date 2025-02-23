@@ -25,7 +25,7 @@ When watching educational video, I wanted to focus on video itself and follow al
 - the result from **deepseek-r1** is quite fun to read, especially it's reasoning part (\<think>reasoning\<think>). With this model it requires more time to generate the summary and the model often gets confused following parts with calculations
 
 ### To Do
-- [ ] add error handling
+- [ ] add retries
 - [ ] try out proprietary models (e.g. recently new Gemini was released)
 - [ ] play around with local LLMs more to improve result with long transcripts
 

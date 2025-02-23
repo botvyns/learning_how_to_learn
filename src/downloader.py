@@ -1,6 +1,8 @@
 import os
 from urllib.parse import urlparse, parse_qs
 
+import backoff
+import pytube.exceptions
 import yt_dlp
 from dotenv import load_dotenv
 from pytube import Playlist, YouTube
@@ -30,6 +32,7 @@ class Downloader:
     def _get_video_urls_from_playlist(self, url: str) -> list:
         return [video.watch_url for video in Playlist(url).videos]
 
+    @backoff.on_exception(backoff.expo, pytube.exceptions.RegexMatchError, max_tries=3)
     def download(self, url: str) -> None:
         query_params = parse_qs(urlparse(url).query)
         watch_urls = self._get_video_urls_from_playlist(url) if "list" in query_params else [YouTube(url).watch_url]
