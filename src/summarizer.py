@@ -32,7 +32,7 @@ class Summarizer:
 
         1. Key Concepts & Brief Explanations – Summarize essential ideas concisely.
         2. Metaphors, Analogies, or Examples – Provide clear comparisons or real-world examples to enhance understanding.
-        3. Recall Questions – List targeted questions to reinforce learning.
+        3. Recall Questions – List targeted questions with valid answers from text to reinforce learning.
 
         Text: {text}"""
 
