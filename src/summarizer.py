@@ -17,9 +17,9 @@ class Summarizer:
     def user_prompt(self) -> str:
         return """Based on the provided text, provide:
 
-        1. **Key Concepts & Brief Explanations** – Summarize essential ideas concisely.
-        2. **Metaphors, Analogies, or Examples** – Provide clear comparisons or real-world examples to enhance understanding.
-        3. **Recall Questions** – List targeted questions to reinforce learning.
+        1. Key Concepts & Brief Explanations – Summarize essential ideas concisely.
+        2. Metaphors, Analogies, or Examples – Provide clear comparisons or real-world examples to enhance understanding.
+        3. Recall Questions – List targeted questions to reinforce learning.
 
         Text: {text}"""
 
