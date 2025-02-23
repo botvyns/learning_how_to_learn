@@ -27,7 +27,7 @@ When watching educational video, I wanted to focus on video itself and follow al
 ### To Do
 - [x] add retries
 - [ ] try out proprietary models (e.g. recently new Gemini was released)
-- [ ] play around with local LLMs more to improve result with long transcripts
+- [x] play around with local LLMs more to improve result with long transcripts (added chunking: break text into chunks with overlap -> summarize each chunk -> provide final summary for summarized chunks)
 
 
 ## Check out 🧐
