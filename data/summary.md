@@ -1,71 +1,74 @@
 # Happy Halloween (Neural Networks Are Not Scary)
 
-### 1. **Key Concepts & Brief Explanations**
+**Key Concepts & Brief Explanations**
+=====================================
 
-*   **Neural Networks**: A type of machine learning model that fits patterns (squiggles or bent shapes) to data.
-*   **Data Sets**: A collection of data points used to train neural networks.
+*   **Neural Networks**: Mathematical algorithms used to fit shapes to data.
+*   **Narrow Networks**: Handle simple, complex, or irregular data.
 
-### 2. **Metaphors, Analogies, or Examples**
+**Metaphors, Analogies, or Examples**
+-------------------------------------
 
-Neural networks can be compared to a "pattern-fitting puzzle" where they try to find the best fit for a given dataset.
+Think of a neural network as a puzzle solver. Just like how a jigsaw puzzle fits together different pieces to reveal an image, a neural network uses mathematical algorithms to find the best fit for a given dataset.
 
-Think of neural networks like a super smart artist who tries to draw the most accurate line possible when given various random lines as reference points.
+**Recall Questions**
+==================
 
-### 3. **Recall Questions**
+1.  What is the primary function of a neural network?
+    *   Find the best fit for data using mathematical algorithms.
+2.  Can a narrow network handle irregular data?
+    *   Yes, they can handle simple, complex, or irregular data.
+3.  How do neural networks improve with more complex datasets?
+    *   They get better at finding patterns and fitting shapes to the data.
 
-*   What is a neural network's primary function?
-*   How does a neural network "fit" data patterns?
-*   Can neural networks handle complex data sets?
+Note: These questions are designed to reinforce learning and understanding of key concepts.
 
 # The Essential Main Ideas of Neural Networks
 
-This is a video from Stat Quest, a YouTube series that explores statistics and machine learning concepts through interactive simulations and games. The video appears to be about creating a neural network using Python and scikit-learn, with the goal of fitting a green squiggle to some data.
+Here's a concise summary:
 
-Here's a breakdown of the main points:
+### Key Concepts & Brief Explanations
+#### **Neural Networks**
+A type of machine learning model that can learn and represent complex patterns.
 
-1. Introduction: The host introduces the concept of neural networks and explains that they're not called "neural networks" because they're not actually inspired by neurons in the brain.
-2. Creating a single hidden layer: The host creates a neural network with two nodes in a single hidden layer, using weights and biases to create different activation functions. They fit this network to some data, resulting in an orange curve and a green squiggle that represents their predictions.
-3. Scaling the curves: The host scales both curves by a positive number (2.28 for the orange curve) and then adds them together to create the final green squiggle.
-4. Subtraction: Finally, they subtract 0.58 from the y-axis values on the green squiggle to get a final result that fits the data.
-5. Conclusion: The host concludes that with just two nodes in a single hidden layer, neural networks can fit a complex curve like this one.
+#### **Activation Functions**
+Mathematical functions that introduce non-linearity into neural networks, allowing them to learn.
 
-Throughout the video, the host uses Python and scikit-learn to implement the simulation and provides explanations of the code and mathematical concepts behind it.
+#### **Hidden Layers**
+Layers of nodes between the input and output nodes that further transform the input and output values before making a prediction.
+
+### Metaphors, Analogies, or Examples
+#### **Neural Network Structure**
+Think of a neural network as a painter with an infinite palette of colors.
+Weights and biases are like brushes, while activation functions are like paints.
+
+#### **Activation Functions**
+Consider activation functions like a light switch. If the combined value is above or below a certain threshold, the output is either "on" (outputted) or "off" (not outputted).
+
+### Recall Questions
+1. What introduces non-linearity into neural networks?
+2. What are weights and biases used for in neural networks?
+3. How do activation functions help reshape the squiggle into a smooth line?
 
 # The Chain Rule
 
-This is a script for an educational video about calculus and linear regression, specifically using a narrative approach to explain concepts. Here's a breakdown of what the script covers:
+**Key Concepts & Brief Explanations**
+=====================================
 
-**Stack Quest Introduction**
+*   **Chain Rule**: A mathematical rule used to find derivatives of composite functions (functions that use other functions as inputs).
+*   **Derivative**: A measure of how something changes with respect to a variable.
+*   **Power Rule**: A mathematical rule used to find the derivative of a function raised to a power.
 
-* Introduces the concept of a "stack quest" (a learning journey) and the topic of linear regression.
-* Explains that the goal is to fit a line to data points.
+**Metaphors, Analogies, or Examples**
+=====================================
 
-**Section 1: Fitting a Line to Data Points**
+*   The chain rule is like a chain reaction: when you change one variable, it affects another variable, which in turn affects yet another variable.
+*   Finding derivatives can be like trying to fit a line to data points: we want to find the equation of that line (the derivative) to understand how the dependent variable changes with respect to the independent variable.
 
-* Introduces the equation for a line: y = intercept + slope x
-* Discusses how to move the line up or down (change the intercept) and left or right (change the slope).
-* Uses visual aids to illustrate how changing the intercept affects the residuals.
+**Recall Questions**
+==================
 
-**Section 2: The Squared Residual**
-
-* Introduces the concept of squared residual, which is the difference between observed values and predicted values.
-* Discusses why minimizing the squared residual is important in linear regression.
-
-**Section 3: Finding the Derivative of the Squared Residual**
-
-* Uses the chain rule to find the derivative of the squared residual with respect to the intercept.
-* Demonstrates how to use parentheses to help simplify the expression.
-
-**Section 4: Minimizing the Squared Residual**
-
-* Finds the value of the intercept that minimizes the squared residual by setting the derivative equal to zero and solving for the intercept.
-* Discusses why this approach is useful in linear regression.
-
-**Conclusion**
-
-* Summarizes the key concepts learned in the video.
-* Encourages viewers to continue learning about calculus and linear regression.
-* Provides links to support further learning (e.g., Patreon campaign, study guides, t-shirts).
-
-Overall, the script provides a engaging narrative introduction to linear regression and calculus, using visual aids and examples to illustrate complex concepts.
+1.  What is the chain rule used for?
+2.  How does the power rule apply to finding derivatives of functions raised to a power?
+3.  What is the purpose of using parentheses in differentiation?
 

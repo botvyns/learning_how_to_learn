@@ -3,8 +3,21 @@ from dotenv import load_dotenv
 
 import backoff
 import ollama
+import tiktoken
 
 load_dotenv()
+
+
+def chunk_text(text: str, chunk_size: int = 1500, overlap: int = 200) -> list[str]:
+    encoding = tiktoken.get_encoding("cl100k_base")
+    tokens = encoding.encode(text)
+
+    chunks = []
+    for i in range(0, len(tokens), chunk_size - overlap):
+        chunk = tokens[i : i + chunk_size]
+        chunks.append(encoding.decode(chunk))
+
+    return chunks
 
 
 class Summarizer:
@@ -33,8 +46,14 @@ class Summarizer:
 
         You keep responses precise and to the point. No unnecessary explanations. You alsway respond in Markdown."""
 
-    @backoff.on_exception(backoff.expo, ollama.ResponseError, max_tries=3)
     def summarize(self, text: str) -> str:
+        chunks = chunk_text(text)
+        summaries = [self._summarize(chunk) for chunk in chunks]
+        final_summary = self._summarize(" ".join(summaries))
+        return final_summary
+
+    @backoff.on_exception(backoff.expo, ollama.ResponseError, max_tries=3)
+    def _summarize(self, text: str) -> str:
         prompt = self.user_prompt.format(text=text)
         llm_response = ollama.chat(
             model=self.model_name,
